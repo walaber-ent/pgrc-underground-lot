@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b2n4oo04jux0t"]
+[gd_scene load_steps=42 format=3 uid="uid://b2n4oo04jux0t"]
 
 [ext_resource type="Script" path="res://Mods/Scripts/ModTrack.gd" id="1_seqqr"]
 [ext_resource type="PackedScene" uid="uid://c7d7wtb3lm6hn" path="res://Mods/Placeholders/mod_car_spawn.tscn" id="2_05dne"]
@@ -11,8 +11,10 @@
 [ext_resource type="Script" path="res://Mods/Scripts/ModCheckpointSet.gd" id="6_jmo07"]
 [ext_resource type="PackedScene" uid="uid://cvsxe56hnxaa0" path="res://Mods/Placeholders/mod_trigger.tscn" id="8_nfmkb"]
 [ext_resource type="PackedScene" uid="uid://cq6m734ruksda" path="res://Mods/Placeholders/mod_barrier_arrow_block.tscn" id="9_mg822"]
+[ext_resource type="Script" path="res://Mods/Scripts/ModTrackPathAltRoute.gd" id="10_nijo3"]
 [ext_resource type="Script" path="res://Mods/Scripts/ModReverbTrigger.gd" id="10_nn3ty"]
 [ext_resource type="PackedScene" uid="uid://dq2fgy8jxkssy" path="res://Mods/Placeholders/mod_barrier_railing.tscn" id="10_vxhwc"]
+[ext_resource type="Script" path="res://Mods/Scripts/ModTrackPathPoint.gd" id="11_nojb1"]
 [ext_resource type="Script" path="res://Mods/Scripts/ModTrackCamera.gd" id="12_oeimf"]
 [ext_resource type="PackedScene" uid="uid://dqqrq7ntnw2j8" path="res://Mods/Placeholders/mod_track_camera_previewer.tscn" id="13_fxgoo"]
 [ext_resource type="PackedScene" uid="uid://bojulahctvh8u" path="res://Mods/walaber_underground/Tracks/underground_lot/underground-mesh.gltf" id="16_gj8ss"]
@@ -38,15 +40,21 @@ script = ExtResource("3_2napl")
 car_class = "cheat"
 laps = 0
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_g7x1r"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_cejjm"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_su1ou"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_xdeih"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_rcs5l"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_lx1fq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5pd5j"]
 size = Vector3(150, 2, 150)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4f87l"]
+[sub_resource type="BoxMesh" id="BoxMesh_mqqxt"]
 size = Vector3(50, 10, 5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_u2lnm"]
+[sub_resource type="BoxMesh" id="BoxMesh_2ffij"]
 size = Vector3(8, 8, 8)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vqec0"]
@@ -184,7 +192,7 @@ size = Vector2(10, 5)
 [node name="TrackPath" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14903, 0)
-mesh = SubResource("ImmediateMesh_g7x1r")
+mesh = SubResource("ImmediateMesh_cejjm")
 script = ExtResource("4_h316e")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -359,6 +367,166 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 732.39, -127.82, 477.1
 [node name="track_path_point56" parent="TrackPath" instance=ExtResource("6_bv4sn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 732.39, -127.82, 494.179)
 
+[node name="TrackPathAltRoute-1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260.845, -80.2217, 172.142)
+mesh = SubResource("ImmediateMesh_xdeih")
+script = ExtResource("10_nijo3")
+material = ExtResource("5_6qukl")
+bezier_handle_length = 8.0
+
+[node name="ModTrackPathPoint" type="Node3D" parent="TrackPathAltRoute-1"]
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint2" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.93951, 0, 23.9645)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint3" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.93951, -8, 47.9645)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint4" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.9395, -7.3493, 59.9645)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint5" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -51.9395, -7.5639, 59.9645)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint6" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.9395, -7.08734, 79.9645)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint7" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.9395, -7.08734, 95.9645)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint8" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -51.9395, -7.08734, 106.965)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint9" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1679, -7.08734, 119.965)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint10" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -52.1679, -7.08734, 131.965)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint11" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.1679, -7.08734, 143.965)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint12" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.1679, -7.5474, 155.51)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint13" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.16791, -7.7167, 155.929)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint14" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.8321, -7.7167, 139.929)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint15" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50.8321, 0.283302, 139.929)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint16" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(0.574748, 0, 0.81833, 0, 1, 0, -0.81833, 0, 0.574748, 94.6, 0.283302, 157.795)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint17" type="Node3D" parent="TrackPathAltRoute-1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 147.832, 0.283302, 171.929)
+script = ExtResource("11_nojb1")
+
+[node name="TrackPathAltRoute-2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 433, -80, 344)
+mesh = SubResource("ImmediateMesh_rcs5l")
+script = ExtResource("10_nijo3")
+material = ExtResource("5_6qukl")
+bezier_handle_length = 8.0
+
+[node name="ModTrackPathPoint" type="Node3D" parent="TrackPathAltRoute-2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint2" type="Node3D" parent="TrackPathAltRoute-2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32, 0, 20)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint3" type="Node3D" parent="TrackPathAltRoute-2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, 0, 44)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint4" type="Node3D" parent="TrackPathAltRoute-2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, 0, 108)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint5" type="Node3D" parent="TrackPathAltRoute-2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 72, 0, 128)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint6" type="Node3D" parent="TrackPathAltRoute-2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 104, 0, 128)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint7" type="Node3D" parent="TrackPathAltRoute-2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 128, 0, 119)
+script = ExtResource("11_nojb1")
+
+[node name="TrackPathAltRoute-3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 593, -80, 463)
+mesh = SubResource("ImmediateMesh_lx1fq")
+script = ExtResource("10_nijo3")
+material = ExtResource("5_6qukl")
+bezier_handle_length = 8.0
+
+[node name="ModTrackPathPoint" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.11306, 0)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint2" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24, 0.215828, 9)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint3" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(0.864415, 0.0684088, 0.498103, 3.72529e-09, 0.9907, -0.136061, -0.502779, 0.117614, 0.856377, 62.0085, -6.14648, 22.012)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint4" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(0.998027, -0.0100206, -0.0619858, 0, 0.987184, -0.159588, 0.0627905, 0.159273, 0.985236, 78.0646, -11.6655, 55.5499)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint5" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(0.725626, -0.0100206, -0.688016, -0.102415, 0.987184, -0.122391, 0.680424, 0.159273, 0.7153, 68.2789, -17.2738, 89.6942)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint6" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(0.120137, -0.149309, -0.981465, -9.31323e-10, 0.988625, -0.150398, 0.992757, 0.0180684, 0.11877, 39.393, -22.6457, 108.138)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint7" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(-0.657375, -0.113985, -0.744893, 0, 0.988494, -0.151261, 0.753563, -0.0994351, -0.649811, 0.449829, -28.5515, 101.847)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint8" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(-0.999976, -0.00105599, -0.0069009, 0, 0.988494, -0.151261, 0.00698123, -0.151257, -0.98847, -22.4441, -35.2656, 66.6742)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint9" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(-0.614285, 0.119357, 0.780005, 0, 0.988494, -0.151261, -0.789084, -0.0929173, -0.607217, -9.21655, -42.2549, 25.0859)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint10" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(-0.15471, 0, 0.98796, 0, 1, 0, -0.98796, 0, -0.15471, 30.991, -47.9742, 6.54404)
+script = ExtResource("11_nojb1")
+
+[node name="ModTrackPathPoint11" type="Node3D" parent="TrackPathAltRoute-3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 56.0429, -47.7213, 1.1806)
+script = ExtResource("11_nojb1")
+
 [node name="Barriers" type="Node3D" parent="."]
 unique_name_in_owner = true
 
@@ -389,12 +557,12 @@ visible = false
 
 [node name="trigger" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
-mesh = SubResource("BoxMesh_su1ou")
+mesh = SubResource("BoxMesh_5pd5j")
 size = Vector3(150, 2, 150)
 
 [node name="trigger2" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -16)
-mesh = SubResource("BoxMesh_4f87l")
+mesh = SubResource("BoxMesh_mqqxt")
 size = Vector3(50, 10, 5)
 
 [node name="ReverbTrigger" type="Node3D" parent="."]
@@ -404,7 +572,7 @@ script = ExtResource("10_nn3ty")
 reverb_strength = 0.8
 
 [node name="trigger" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
-mesh = SubResource("BoxMesh_u2lnm")
+mesh = SubResource("BoxMesh_2ffij")
 size = Vector3(8, 8, 8)
 
 [node name="TrackCameras" type="Node3D" parent="."]
