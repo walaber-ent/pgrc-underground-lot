@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b2n4oo04jux0t"]
+[gd_scene load_steps=37 format=3 uid="uid://b2n4oo04jux0t"]
 
 [ext_resource type="Script" path="res://Mods/Scripts/ModTrack.gd" id="1_seqqr"]
 [ext_resource type="PackedScene" uid="uid://c7d7wtb3lm6hn" path="res://Mods/Placeholders/mod_car_spawn.tscn" id="2_05dne"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Mods/Scripts/ModTrackPath.gd" id="4_h316e"]
 [ext_resource type="Material" uid="uid://budvf3w2bjk2w" path="res://Mods/Placeholders/Materials/track_path.tres" id="5_6qukl"]
 [ext_resource type="PackedScene" uid="uid://cu0mwqn0aqh5x" path="res://Mods/Placeholders/mod_track_path_point.tscn" id="6_bv4sn"]
+[ext_resource type="Script" path="res://Mods/Scripts/ModCheckpointSet.gd" id="6_jmo07"]
 [ext_resource type="PackedScene" uid="uid://cvsxe56hnxaa0" path="res://Mods/Placeholders/mod_trigger.tscn" id="8_nfmkb"]
 [ext_resource type="PackedScene" uid="uid://cq6m734ruksda" path="res://Mods/Placeholders/mod_barrier_arrow_block.tscn" id="9_mg822"]
 [ext_resource type="Script" path="res://Mods/Scripts/ModReverbTrigger.gd" id="10_nn3ty"]
@@ -37,15 +38,15 @@ script = ExtResource("3_2napl")
 car_class = "cheat"
 laps = 0
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_0713t"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_g7x1r"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_e1xou"]
+[sub_resource type="BoxMesh" id="BoxMesh_su1ou"]
 size = Vector3(150, 2, 150)
 
-[sub_resource type="BoxMesh" id="BoxMesh_obvsr"]
+[sub_resource type="BoxMesh" id="BoxMesh_4f87l"]
 size = Vector3(50, 10, 5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_dacv6"]
+[sub_resource type="BoxMesh" id="BoxMesh_u2lnm"]
 size = Vector3(8, 8, 8)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vqec0"]
@@ -121,21 +122,69 @@ transform = Transform3D(-4.56956e-08, 0, -1, 0, 1, 0, 1, 0, -4.56956e-08, 81.641
 size = Vector2(8, 5)
 
 [node name="checkpoint7" parent="Checkpoints" instance=ExtResource("3_7qbpy")]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 270, -80, 182)
+size = Vector2(18, 25)
+
+[node name="checkpoint8-set" type="Node3D" parent="Checkpoints"]
+script = ExtResource("6_jmo07")
+
+[node name="checkpoint8a" parent="Checkpoints/checkpoint8-set" instance=ExtResource("3_7qbpy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 191.253, -88.1203, 268.154)
+size = Vector2(5, 5)
+
+[node name="checkpoint8b" parent="Checkpoints/checkpoint8-set" instance=ExtResource("3_7qbpy")]
+transform = Transform3D(-0.77719, 0, -0.629266, 0, 1, 0, 0.629266, 0, -0.77719, 342.783, -56.1203, 209.437)
+size = Vector2(8, 5)
+
+[node name="checkpoint9-set" type="Node3D" parent="Checkpoints"]
+script = ExtResource("6_jmo07")
+
+[node name="checkpoint9a" parent="Checkpoints/checkpoint9-set" instance=ExtResource("3_7qbpy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 231.253, -88.1203, 292.154)
+size = Vector2(5, 5)
+
+[node name="checkpoint9b" parent="Checkpoints/checkpoint9-set" instance=ExtResource("3_7qbpy")]
+transform = Transform3D(-0.941247, 0, -0.33772, 0, 1, 0, 0.33772, 0, -0.941247, 362.803, -64.1203, 261.564)
+size = Vector2(8, 5)
+
+[node name="checkpoint10-set" type="Node3D" parent="Checkpoints"]
+script = ExtResource("6_jmo07")
+
+[node name="checkpoint10a" parent="Checkpoints/checkpoint10-set" instance=ExtResource("3_7qbpy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 192.253, -88.1203, 316.154)
+size = Vector2(5, 5)
+
+[node name="checkpoint10b" parent="Checkpoints/checkpoint10-set" instance=ExtResource("3_7qbpy")]
+transform = Transform3D(-0.952741, 0, -0.303784, 0, 1, 0, 0.303784, 0, -0.952741, 374.207, -72.1203, 301.743)
+size = Vector2(8, 5)
+
+[node name="checkpoint11" parent="Checkpoints" instance=ExtResource("3_7qbpy")]
 transform = Transform3D(-4.56956e-08, 0, -1, 0, 1, 0, 1, 0, -4.56956e-08, 416.796, -80, 340.946)
 size = Vector2(6, 5)
 
-[node name="checkpoint8" parent="Checkpoints" instance=ExtResource("3_7qbpy")]
+[node name="checkpoint12-set" type="Node3D" parent="Checkpoints"]
+script = ExtResource("6_jmo07")
+
+[node name="checkpoint10a" parent="Checkpoints/checkpoint12-set" instance=ExtResource("3_7qbpy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 488.632, -80.1203, 411.982)
+size = Vector2(8, 5)
+
+[node name="checkpoint10b" parent="Checkpoints/checkpoint12-set" instance=ExtResource("3_7qbpy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 537, -80, 397)
+size = Vector2(8, 5)
+
+[node name="checkpoint13" parent="Checkpoints" instance=ExtResource("3_7qbpy")]
 transform = Transform3D(-4.56956e-08, 0, -1, 0, 1, 0, 1, 0, -4.56956e-08, 584.762, -80, 460.852)
 size = Vector2(6, 5)
 
-[node name="checkpoint9" parent="Checkpoints" instance=ExtResource("3_7qbpy")]
+[node name="checkpoint14" parent="Checkpoints" instance=ExtResource("3_7qbpy")]
 transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 737.762, -128, 493.852)
 size = Vector2(10, 5)
 
 [node name="TrackPath" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14903, 0)
-mesh = SubResource("ImmediateMesh_0713t")
+mesh = SubResource("ImmediateMesh_g7x1r")
 script = ExtResource("4_h316e")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -340,12 +389,12 @@ visible = false
 
 [node name="trigger" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
-mesh = SubResource("BoxMesh_e1xou")
+mesh = SubResource("BoxMesh_su1ou")
 size = Vector3(150, 2, 150)
 
 [node name="trigger2" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -16)
-mesh = SubResource("BoxMesh_obvsr")
+mesh = SubResource("BoxMesh_4f87l")
 size = Vector3(50, 10, 5)
 
 [node name="ReverbTrigger" type="Node3D" parent="."]
@@ -355,7 +404,7 @@ script = ExtResource("10_nn3ty")
 reverb_strength = 0.8
 
 [node name="trigger" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
-mesh = SubResource("BoxMesh_dacv6")
+mesh = SubResource("BoxMesh_u2lnm")
 size = Vector3(8, 8, 8)
 
 [node name="TrackCameras" type="Node3D" parent="."]
