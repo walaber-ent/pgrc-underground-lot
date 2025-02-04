@@ -40,21 +40,21 @@ script = ExtResource("3_2napl")
 car_class = "cheat"
 laps = 0
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_cejjm"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_8eqd7"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_xdeih"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_sqrfb"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_rcs5l"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_h6xxt"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_lx1fq"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_npinf"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_5pd5j"]
+[sub_resource type="BoxMesh" id="BoxMesh_hn3dt"]
 size = Vector3(150, 2, 150)
 
-[sub_resource type="BoxMesh" id="BoxMesh_mqqxt"]
+[sub_resource type="BoxMesh" id="BoxMesh_wmj3n"]
 size = Vector3(50, 10, 5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_2ffij"]
+[sub_resource type="BoxMesh" id="BoxMesh_3rjbo"]
 size = Vector3(8, 8, 8)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vqec0"]
@@ -192,7 +192,7 @@ size = Vector2(10, 5)
 [node name="TrackPath" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14903, 0)
-mesh = SubResource("ImmediateMesh_cejjm")
+mesh = SubResource("ImmediateMesh_8eqd7")
 script = ExtResource("4_h316e")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -369,7 +369,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 732.39, -127.82, 494.1
 
 [node name="TrackPathAltRoute-1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260.845, -80.2217, 172.142)
-mesh = SubResource("ImmediateMesh_xdeih")
+mesh = SubResource("ImmediateMesh_sqrfb")
 script = ExtResource("10_nijo3")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -443,7 +443,7 @@ script = ExtResource("11_nojb1")
 
 [node name="TrackPathAltRoute-2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 433, -80, 344)
-mesh = SubResource("ImmediateMesh_rcs5l")
+mesh = SubResource("ImmediateMesh_h6xxt")
 script = ExtResource("10_nijo3")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -478,7 +478,7 @@ script = ExtResource("11_nojb1")
 
 [node name="TrackPathAltRoute-3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 593, -80, 463)
-mesh = SubResource("ImmediateMesh_lx1fq")
+mesh = SubResource("ImmediateMesh_npinf")
 script = ExtResource("10_nijo3")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -557,12 +557,12 @@ visible = false
 
 [node name="trigger" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
-mesh = SubResource("BoxMesh_5pd5j")
+mesh = SubResource("BoxMesh_hn3dt")
 size = Vector3(150, 2, 150)
 
 [node name="trigger2" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -16)
-mesh = SubResource("BoxMesh_mqqxt")
+mesh = SubResource("BoxMesh_wmj3n")
 size = Vector3(50, 10, 5)
 
 [node name="ReverbTrigger" type="Node3D" parent="."]
@@ -572,7 +572,7 @@ script = ExtResource("10_nn3ty")
 reverb_strength = 0.8
 
 [node name="trigger" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
-mesh = SubResource("BoxMesh_2ffij")
+mesh = SubResource("BoxMesh_3rjbo")
 size = Vector3(8, 8, 8)
 
 [node name="TrackCameras" type="Node3D" parent="."]

@@ -39,9 +39,11 @@ func get_track_curve() -> Curve3D:
 	return _curve
 
 
-func refresh_mesh() -> void:
+func refresh_mesh(start_uv:float=0.0, end_uv:float = 1.0) -> void:
 	if get_child_count() == 0:
 		return
+		
+	var uv_range : float = end_uv - start_uv
 		
 	if _mesh == null:
 		_mesh = ImmediateMesh.new()
@@ -86,7 +88,7 @@ func refresh_mesh() -> void:
 		right.y = 0.0
 		right = right.normalized()
 		
-		var uv_x : float = d / length
+		var uv_x : float = start_uv + ((d / length) * uv_range)
 		
 		# last point special logic
 		if not race_is_point_to_point:

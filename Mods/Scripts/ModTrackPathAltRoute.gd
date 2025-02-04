@@ -8,37 +8,44 @@ class_name ModTrackPathAltRoute
 @export var bezier_handle_length : float = 2.0:
 	set(val):
 		bezier_handle_length = val
-		refresh_mesh()
+		if Engine.is_editor_hint():
+			refresh_mesh()
 		
 @export var track_width : float = 6.0:
 	set(val):
 		track_width = val
-		refresh_mesh()
+		if Engine.is_editor_hint():
+			refresh_mesh()
 		
 @export var vert_spacing : float = 2.0:
 	set(val):
 		vert_spacing = val
-		refresh_mesh()
+		if Engine.is_editor_hint():
+			refresh_mesh()
 
 var _mesh : ImmediateMesh
 var _curve : Curve3D
 
 func _ready() -> void:
-	refresh_mesh()
+	if Engine.is_editor_hint():
+		refresh_mesh()
 	
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_CHILD_ORDER_CHANGED:
-		refresh_mesh()
+		if Engine.is_editor_hint():
+			refresh_mesh()
 
 func get_track_curve() -> Curve3D:
 	return _curve
 
 
-func refresh_mesh() -> void:
+func refresh_mesh(start_uv:float = 0.0, end_uv:float = 1.0, force_new:bool = false) -> void:
 	if get_child_count() == 0:
 		return
-		
-	if _mesh == null:
+	
+	var uv_range : float = end_uv - start_uv
+	
+	if _mesh == null or force_new:
 		_mesh = ImmediateMesh.new()
 		mesh = _mesh
 		
@@ -81,7 +88,7 @@ func refresh_mesh() -> void:
 		right.y = 0.0
 		right = right.normalized()
 		
-		var uv_x : float = d / length
+		var uv_x : float = start_uv + ((d / length) * uv_range)
 		
 		_mesh.surface_set_uv(Vector2(uv_x, 0.0))
 		_mesh.surface_add_vertex(pt + (right * track_width * 0.5))
@@ -92,11 +99,3 @@ func refresh_mesh() -> void:
 		d = minf(d + final_spacing, length)
 		
 	_mesh.surface_end()
-		
-		
-		
-	
-	
-	
-	
-	
