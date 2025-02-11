@@ -1,0 +1,47 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://e82iwpt6ohm"
+path="res://.godot/imported/underground-4.gltf-b24485888b9596c4d56edc10f812e542.scn"
+
+[deps]
+
+source_file="res://Mods/walaber_underground/Tracks/underground_lot/underground-4.gltf"
+dest_files=["res://.godot/imported/underground-4.gltf-b24485888b9596c4d56edc10f812e542.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"underground_0": {
+"use_external/enabled": true,
+"use_external/path": "res://Mods/walaber_underground/Tracks/underground_lot/underground_0_mat.tres"
+}
+},
+"nodes": {
+"PATH:default": {
+"generate/physics": true,
+"physics/shape_type": 2
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
