@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b2n4oo04jux0t"]
+[gd_scene load_steps=56 format=3 uid="uid://b2n4oo04jux0t"]
 
 [ext_resource type="Script" path="res://Mods/Scripts/ModTrack.gd" id="1_seqqr"]
 [ext_resource type="PackedScene" uid="uid://c7d7wtb3lm6hn" path="res://Mods/Placeholders/mod_car_spawn.tscn" id="2_05dne"]
@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://djysnusdma223" path="res://Mods/walaber_underground/Tracks/underground_lot/underground-3.gltf" id="20_dh5pq"]
 [ext_resource type="PackedScene" uid="uid://e82iwpt6ohm" path="res://Mods/walaber_underground/Tracks/underground_lot/underground-4.gltf" id="21_kov25"]
 [ext_resource type="PackedScene" uid="uid://do5aimoi5mjfp" path="res://Mods/walaber_underground/Tracks/underground_lot/underground-5.gltf" id="22_xyqc3"]
+[ext_resource type="Material" uid="uid://qekpi3abt3gl" path="res://Mods/walaber_underground/Tracks/underground_lot/underground-water.tres" id="23_uyixa"]
+[ext_resource type="Script" path="res://Mods/Scripts/ModSkyboxTrigger.gd" id="24_hh38k"]
 
 [sub_resource type="Resource" id="Resource_5y32m"]
 script = ExtResource("3_2napl")
@@ -44,22 +46,87 @@ script = ExtResource("3_2napl")
 car_class = "cheat"
 laps = 0
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_fmyxo"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_srpmm"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_21lhb"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_supjo"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_bp72t"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_4ou7x"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_2m552"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_atdwr"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_vwo5w"]
-size = Vector3(150, 2, 150)
+[sub_resource type="BoxMesh" id="BoxMesh_5m8ao"]
+size = Vector3(50, 20, 150)
 
-[sub_resource type="BoxMesh" id="BoxMesh_qft7g"]
-size = Vector3(50, 10, 5)
+[sub_resource type="BoxMesh" id="BoxMesh_a0e0l"]
+size = Vector3(100, 20, 150)
 
-[sub_resource type="BoxMesh" id="BoxMesh_7qeny"]
+[sub_resource type="BoxMesh" id="BoxMesh_qiyse"]
+size = Vector3(100, 20, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yaiwd"]
+size = Vector3(100, 20, 300)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oem1k"]
+size = Vector3(75, 25, 75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_00dn5"]
+size = Vector3(75, 25, 75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yiya5"]
+size = Vector3(75, 25, 75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_210pa"]
+size = Vector3(75, 25, 75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b30jx"]
+size = Vector3(75, 25, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ebvu3"]
 size = Vector3(8, 8, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_af81u"]
+size = Vector2(120, 254.4)
+subdivide_width = 30
+subdivide_depth = 75
+
+[sub_resource type="Gradient" id="Gradient_roam2"]
+interpolation_mode = 1
+colors = PackedColorArray(0.237686, 0.186299, 0.150952, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1bug7"]
+gradient = SubResource("Gradient_roam2")
+width = 64
+
+[sub_resource type="BoxMesh" id="BoxMesh_kt8ea"]
+size = Vector3(9.43, 14.185, 2)
+
+[sub_resource type="Gradient" id="Gradient_pgx7h"]
+interpolation_mode = 1
+colors = PackedColorArray(0.152941, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_llnl0"]
+gradient = SubResource("Gradient_pgx7h")
+width = 64
+
+[sub_resource type="BoxMesh" id="BoxMesh_sjsbj"]
+size = Vector3(14.545, 14.185, 2)
+
+[sub_resource type="Gradient" id="Gradient_uqwfl"]
+colors = PackedColorArray(0.188235, 0.392157, 0.384314, 1, 2.0359e-05, 0, 0.00745202, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tu8p6"]
+gradient = SubResource("Gradient_uqwfl")
+fill_from = Vector2(0.538462, 0.884615)
+fill_to = Vector2(0.508547, 0.260684)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2i08i"]
+size = Vector3(14.545, 14.185, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y48ry"]
+size = Vector3(31.78, 27.755, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ikp2v"]
+size = Vector3(31.78, 27.755, 2)
 
 [node name="TrackUndergroundLot" type="Node3D"]
 script = ExtResource("1_seqqr")
@@ -101,8 +168,8 @@ transform = Transform3D(-4.56956e-08, 0, -1, 0, 1, 0, 1, 0, -4.56956e-08, 81.641
 size = Vector2(8, 5)
 
 [node name="checkpoint7" parent="Checkpoints" instance=ExtResource("3_7qbpy")]
-transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 270, -80, 182)
-size = Vector2(18, 25)
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 272, -80, 182)
+size = Vector2(22, 33.085)
 
 [node name="checkpoint8-set" type="Node3D" parent="Checkpoints"]
 script = ExtResource("6_jmo07")
@@ -163,7 +230,7 @@ size = Vector2(10, 5)
 [node name="TrackPath" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14903, 0)
-mesh = SubResource("ImmediateMesh_fmyxo")
+mesh = SubResource("ImmediateMesh_srpmm")
 script = ExtResource("4_h316e")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -340,7 +407,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 732.39, -127.82, 494.1
 
 [node name="TrackPathAltRoute-1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260.845, -80.2217, 172.142)
-mesh = SubResource("ImmediateMesh_21lhb")
+mesh = SubResource("ImmediateMesh_supjo")
 script = ExtResource("10_nijo3")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -414,7 +481,7 @@ script = ExtResource("11_nojb1")
 
 [node name="TrackPathAltRoute-2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 433, -80, 344)
-mesh = SubResource("ImmediateMesh_bp72t")
+mesh = SubResource("ImmediateMesh_4ou7x")
 script = ExtResource("10_nijo3")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -449,7 +516,7 @@ script = ExtResource("11_nojb1")
 
 [node name="TrackPathAltRoute-3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 593, -80, 463)
-mesh = SubResource("ImmediateMesh_2m552")
+mesh = SubResource("ImmediateMesh_atdwr")
 script = ExtResource("10_nijo3")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 8.0
@@ -628,17 +695,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12657, 0)
 
 [node name="OutOfBounds" type="Node3D" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="trigger" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
-mesh = SubResource("BoxMesh_vwo5w")
-size = Vector3(150, 2, 150)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 4, -135)
+mesh = SubResource("BoxMesh_5m8ao")
+size = Vector3(50, 20, 150)
+
+[node name="trigger3" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103, 4, -135)
+mesh = SubResource("BoxMesh_a0e0l")
+size = Vector3(100, 20, 150)
+
+[node name="trigger4" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 11, -186)
+mesh = SubResource("BoxMesh_qiyse")
+size = Vector3(100, 20, 50)
 
 [node name="trigger2" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -16)
-mesh = SubResource("BoxMesh_qft7g")
-size = Vector3(50, 10, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 492, -96, 392)
+mesh = SubResource("BoxMesh_yaiwd")
+size = Vector3(100, 20, 300)
+
+[node name="trigger5" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 465, -74, 255)
+mesh = SubResource("BoxMesh_oem1k")
+size = Vector3(75, 25, 75)
+
+[node name="trigger6" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 507, -74, 541)
+mesh = SubResource("BoxMesh_00dn5")
+size = Vector3(75, 25, 75)
+
+[node name="trigger7" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 749, -117, 391)
+mesh = SubResource("BoxMesh_yiya5")
+size = Vector3(75, 25, 75)
+
+[node name="trigger8" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 749, -117, 597)
+mesh = SubResource("BoxMesh_210pa")
+size = Vector3(75, 25, 75)
+
+[node name="trigger9" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 812, -117, 492)
+mesh = SubResource("BoxMesh_b30jx")
+size = Vector3(75, 25, 200)
 
 [node name="ReverbTrigger" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, -8)
@@ -647,7 +748,7 @@ script = ExtResource("10_nn3ty")
 reverb_strength = 0.8
 
 [node name="trigger" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
-mesh = SubResource("BoxMesh_7qeny")
+mesh = SubResource("BoxMesh_ebvu3")
 size = Vector3(8, 8, 8)
 
 [node name="TrackCameras" type="Node3D" parent="."]
@@ -676,6 +777,7 @@ unique_name_in_owner = true
 preview_car_interp = 0.857
 
 [node name="Mesh-Part-1" parent="." instance=ExtResource("18_is6st")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Mesh-Part-2" parent="." instance=ExtResource("19_ovb2o")]
 
@@ -684,6 +786,11 @@ preview_car_interp = 0.857
 [node name="Mesh-Part-4" parent="." instance=ExtResource("21_kov25")]
 
 [node name="Mesh-Part-5" parent="." instance=ExtResource("22_xyqc3")]
+
+[node name="Waterway-Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 482.933, -83.5685, 392.215)
+mesh = SubResource("PlaneMesh_af81u")
+surface_material_override/0 = ExtResource("23_uyixa")
 
 [node name="IntroCamera" parent="." instance=ExtResource("18_i6lae")]
 unique_name_in_owner = true
@@ -699,5 +806,62 @@ transform = Transform3D(-0.649252, 0.246937, -0.71937, 0, 0.945827, 0.324672, 0.
 
 [node name="look" parent="IntroCamera" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26136, 3.04589, -134.915)
+
+[node name="SkyboxTrigger-YellowLot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17034, 0, -120.98)
+script = ExtResource("24_hh38k")
+built_in_skybox_style = 1
+pgrc_skybox_name = ""
+custom_skybox_texture = SubResource("GradientTexture1D_1bug7")
+
+[node name="trigger" parent="SkyboxTrigger-YellowLot" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5276, 0)
+mesh = SubResource("BoxMesh_kt8ea")
+size = Vector3(9.43, 14.185, 2)
+
+[node name="SkyboxTrigger-Brick" type="Node3D" parent="."]
+transform = Transform3D(0.872377, 0, 0.488834, 0, 1, 0, -0.488834, 0, 0.872377, 256.917, -78.0495, 55.6833)
+script = ExtResource("24_hh38k")
+built_in_skybox_style = 1
+pgrc_skybox_name = ""
+custom_skybox_texture = SubResource("GradientTexture1D_llnl0")
+
+[node name="trigger" parent="SkyboxTrigger-Brick" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5276, 0)
+mesh = SubResource("BoxMesh_sjsbj")
+size = Vector3(14.545, 14.185, 2)
+
+[node name="SkyboxTrigger-Waterway" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 410.185, -81.6473, 343.687)
+script = ExtResource("24_hh38k")
+built_in_skybox_style = 1
+pgrc_skybox_name = ""
+custom_skybox_texture = SubResource("GradientTexture2D_tu8p6")
+
+[node name="trigger" parent="SkyboxTrigger-Waterway" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5276, 0)
+mesh = SubResource("BoxMesh_2i08i")
+size = Vector3(14.545, 14.185, 2)
+
+[node name="SkyboxTrigger-YellowLot2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 588.627, -74.8083, 464.433)
+script = ExtResource("24_hh38k")
+built_in_skybox_style = 1
+pgrc_skybox_name = ""
+custom_skybox_texture = SubResource("GradientTexture1D_1bug7")
+
+[node name="trigger" parent="SkyboxTrigger-YellowLot2" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5276, 0)
+mesh = SubResource("BoxMesh_y48ry")
+size = Vector3(31.78, 27.755, 2)
+
+[node name="SkyboxTrigger-BackToSky" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 650.402, -125.808, 464.433)
+script = ExtResource("24_hh38k")
+
+[node name="trigger" parent="SkyboxTrigger-BackToSky" instance=ExtResource("8_nfmkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5276, 0)
+mesh = SubResource("BoxMesh_ikp2v")
+size = Vector3(31.78, 27.755, 2)
 
 [editable path="IntroCamera"]

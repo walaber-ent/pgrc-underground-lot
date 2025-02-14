@@ -1,0 +1,30 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://qekpi3abt3gl"]
+
+[ext_resource type="Shader" path="res://Shaders/saturn_lit_world_water.gdshader" id="1_sd08h"]
+
+[sub_resource type="Gradient" id="Gradient_awhvv"]
+offsets = PackedFloat32Array(0.180995, 0.613122, 0.755656, 0.871041)
+colors = PackedColorArray(0.224462, 0.410973, 0.415189, 1, 0.287144, 0.523741, 0.497863, 1, 0.380888, 0.657337, 0.56893, 1, 0.286275, 0.52549, 0.498039, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_47edo"]
+seed = 6
+frequency = 0.0101
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e8afs"]
+width = 256
+height = 256
+generate_mipmaps = false
+seamless = true
+color_ramp = SubResource("Gradient_awhvv")
+noise = SubResource("FastNoiseLite_47edo")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sd08h")
+shader_parameter/affine_mapping = true
+shader_parameter/affine_effect_reduction = 8.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/scroll_speed = Vector2(0.02, 0.1)
+shader_parameter/uv_scale = 0.028
+shader_parameter/main_texture = SubResource("NoiseTexture2D_e8afs")
