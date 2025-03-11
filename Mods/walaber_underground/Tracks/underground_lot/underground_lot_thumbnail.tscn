@@ -1,19 +1,51 @@
-[gd_scene load_steps=10 format=3 uid="uid://debj0mn5tcivu"]
+[gd_scene load_steps=11 format=3 uid="uid://debj0mn5tcivu"]
 
 [ext_resource type="Script" path="res://Mods/Scripts/ModTrackThumbnail.gd" id="1_xhvmg"]
-[ext_resource type="PackedScene" uid="uid://dp7e7e4jrfb5o" path="res://Mods/walaber_underground/Tracks/underground_lot/sample_track.glb" id="2_j151g"]
-[ext_resource type="Material" uid="uid://ci0wrahjtap80" path="res://Mods/walaber_underground/Tracks/underground_lot/underground_lot_diffuse_thumbnail.tres" id="3_60hbk"]
-[ext_resource type="PackedScene" uid="uid://cxmqh8d5hw8m" path="res://Mods/Placeholders/Models/arrow-barrier-one-way.glb" id="3_f36xi"]
-[ext_resource type="PackedScene" uid="uid://kxc8kppnmhm2" path="res://Mods/Placeholders/Models/railing-barrier-banner-1.glb" id="4_8wvfm"]
-[ext_resource type="Material" uid="uid://bo2vvto7t361q" path="res://Mods/Placeholders/Materials/thumbnail_arrow.tres" id="4_e4vuy"]
-[ext_resource type="Material" uid="uid://cvrh20yk4m01m" path="res://Mods/Placeholders/Materials/railing_barrier.tres" id="6_jbses"]
-[ext_resource type="Material" uid="uid://boyhochl2y5wg" path="res://Mods/Placeholders/Materials/thumbnail_barrier_banners.tres" id="7_lcyc1"]
+[ext_resource type="PackedScene" uid="uid://wy1akfoelcru" path="res://Mods/walaber_underground/Tracks/underground_lot/underground-thumbnail.gltf" id="2_j151g"]
+[ext_resource type="Shader" path="res://Shaders/saturn_unlit_dither.gdshader" id="3_lsp53"]
+[ext_resource type="Material" uid="uid://3g3wmcrspnk4" path="res://Mods/walaber_underground/Tracks/underground_lot/underground_0_mat.tres" id="3_s2bsw"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_uum8v"]
 flip_faces = true
 top_radius = 12.5
 bottom_radius = 12.5
 height = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_eeosq"]
+size = Vector2(12, 12)
+subdivide_width = 11
+subdivide_depth = 11
+
+[sub_resource type="Gradient" id="Gradient_awhvv"]
+offsets = PackedFloat32Array(0.180995, 0.613122, 0.755656, 0.871041)
+colors = PackedColorArray(0.224462, 0.410973, 0.415189, 1, 0.287144, 0.523741, 0.497863, 1, 0.380888, 0.657337, 0.56893, 1, 0.286275, 0.52549, 0.498039, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_47edo"]
+seed = 6
+frequency = 0.0101
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uco53"]
+width = 256
+height = 256
+generate_mipmaps = false
+seamless = true
+color_ramp = SubResource("Gradient_awhvv")
+noise = SubResource("FastNoiseLite_47edo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58nqm"]
+render_priority = 0
+shader = ExtResource("3_lsp53")
+shader_parameter/affine_mapping = true
+shader_parameter/affine_effect_reduction = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/texture_color_factor = 1.0
+shader_parameter/billboard = false
+shader_parameter/full_billboard = false
+shader_parameter/albedo_steps = 64
+shader_parameter/billboard_roll = 0.0
+shader_parameter/billboard_scale = Vector3(1, 1, 1)
+shader_parameter/main_texture = SubResource("NoiseTexture2D_uco53")
 
 [node name="sample_track_thumbnail" type="Node3D"]
 script = ExtResource("1_xhvmg")
@@ -23,56 +55,15 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 mesh = SubResource("CylinderMesh_uum8v")
 
-[node name="sample_track" parent="." instance=ExtResource("2_j151g")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -3.6, 0.3, -3.6)
+[node name="default2" parent="." instance=ExtResource("2_j151g")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -93, 17, -67.5)
 
-[node name="Cube" parent="sample_track" index="0"]
-surface_material_override/0 = ExtResource("3_60hbk")
+[node name="default" parent="default2" index="0"]
+surface_material_override/0 = ExtResource("3_s2bsw")
 
-[node name="Cube_001" parent="sample_track" index="1"]
-surface_material_override/0 = ExtResource("3_60hbk")
+[node name="water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.3, -0.227866, 0.11)
+mesh = SubResource("QuadMesh_eeosq")
+surface_material_override/0 = SubResource("ShaderMaterial_58nqm")
 
-[node name="Cube_002" parent="sample_track" index="2"]
-surface_material_override/0 = ExtResource("3_60hbk")
-
-[node name="Cube_003" parent="sample_track" index="3"]
-surface_material_override/0 = ExtResource("3_60hbk")
-
-[node name="Cube_004" parent="sample_track" index="4"]
-surface_material_override/0 = ExtResource("3_60hbk")
-
-[node name="Cube_005" parent="sample_track" index="5"]
-surface_material_override/0 = ExtResource("3_60hbk")
-
-[node name="Cube_006" parent="sample_track" index="6"]
-surface_material_override/0 = ExtResource("3_60hbk")
-
-[node name="Cube_007" parent="sample_track" index="7"]
-surface_material_override/0 = ExtResource("3_60hbk")
-
-[node name="Cube_008" parent="sample_track" index="8"]
-surface_material_override/0 = ExtResource("3_60hbk")
-
-[node name="arrow-barrier-one-way2" parent="." instance=ExtResource("3_f36xi")]
-transform = Transform3D(-0.45346, 0, -0.210652, 0, 0.5, 0, 0.210652, 0, -0.45346, 2.63938, 0.305109, 2.81253)
-
-[node name="arrow-barrier" parent="arrow-barrier-one-way2" index="0"]
-surface_material_override/0 = ExtResource("4_e4vuy")
-
-[node name="railing-barrier-banner-1" parent="." instance=ExtResource("4_8wvfm")]
-transform = Transform3D(0.25, 0, 0.433013, 0, 0.5, 0, -0.433013, 0, 0.25, 2.25591, 0.305109, -2.58242)
-
-[node name="railing-barrier-nocol" parent="railing-barrier-banner-1" index="0"]
-surface_material_override/0 = ExtResource("6_jbses")
-surface_material_override/1 = ExtResource("7_lcyc1")
-
-[node name="arrow-barrier-one-way3" parent="." instance=ExtResource("3_f36xi")]
-transform = Transform3D(-0.482963, 0, 0.12941, 0, 0.5, 0, -0.12941, 0, -0.482963, -2.4661, 0.305109, 2.9461)
-
-[node name="arrow-barrier" parent="arrow-barrier-one-way3" index="0"]
-surface_material_override/0 = ExtResource("4_e4vuy")
-
-[editable path="sample_track"]
-[editable path="arrow-barrier-one-way2"]
-[editable path="railing-barrier-banner-1"]
-[editable path="arrow-barrier-one-way3"]
+[editable path="default2"]
